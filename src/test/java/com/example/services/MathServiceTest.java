@@ -35,4 +35,10 @@ public class MathServiceTest {
     String calculation = mathService.sum(params);
     assertEquals("4 + 5 + 6 = 15", calculation);
   }
+
+  @Test
+  public void rectangleInfo() throws Exception {
+    String response = mathService.rectangleInfo(4, 5, 6);
+    assertEquals("The volume of a 4x5x6 rectangle is 120", response);
+  }
 }

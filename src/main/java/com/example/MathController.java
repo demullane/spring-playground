@@ -28,4 +28,9 @@ public class MathController {
 	public String getSumParams(@RequestParam MultiValueMap<String, String> query) {
 		return mathService.sum(query);
 	}
+
+	@RequestMapping("/volume/{length}/{width}/{height}")
+	public String getRectangleVolume(@PathVariable int length, @PathVariable int width, @PathVariable int height) {
+		return mathService.rectangleInfo(length, width, height);
+	}
 }

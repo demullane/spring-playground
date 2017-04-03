@@ -53,4 +53,14 @@ public class MathService {
 
     return equation + " = " + Integer.toString(sum);
   }
+
+  public String rectangleInfo(int length, int width, int height) {
+    int volume = length*width*height;
+    String lengthSt = Integer.toString(length);
+    String widthSt = Integer.toString(width);
+    String heightSt = Integer.toString(height);
+    String dimensions = lengthSt + "x" + widthSt + "x" + heightSt;
+
+    return "The volume of a " + dimensions + " rectangle is " + volume;
+  }
 }
