@@ -36,7 +36,7 @@ public class MathService {
                         break;
     }
 
-    return x + operator + y + " = " + Integer.toString(total);
+    return String.format("%s%s%s = %s", x, operator, y, total);
   }
 
   public String sum(MultiValueMap<String, String> query) {
@@ -53,21 +53,16 @@ public class MathService {
           equation += " + " + value;
         }
 
-        sum = sum + Integer.parseInt(value);
+        sum += Integer.parseInt(value);
       }
     }
 
-    return equation + " = " + Integer.toString(sum);
+    return String.format("%s = %s", equation, sum);
   }
 
   public String rectangleInfo(int length, int width, int height) {
     int volume = length*width*height;
-    String lengthSt = Integer.toString(length);
-    String widthSt = Integer.toString(width);
-    String heightSt = Integer.toString(height);
-    String dimensions = lengthSt + "x" + widthSt + "x" + heightSt;
-
-    return "The volume of a " + dimensions + " rectangle is " + volume;
+    return String.format("The volume of a %sx%sx%s rectangle is %s", length, width, height, volume);
   }
 
   public String area(Map<String, String> body) {
