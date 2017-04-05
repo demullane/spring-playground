@@ -3,8 +3,14 @@ package com.example.services;
 import org.springframework.stereotype.Component;
 import org.springframework.util.MultiValueMap;
 
+import java.util.Map;
+
 @Component
 public class MathService {
+
+  public String pi() {
+    return Double.toString(Math.PI);
+  }
 
   public String calculate(String operation, String x, String y) {
     int total;
@@ -62,5 +68,29 @@ public class MathService {
     String dimensions = lengthSt + "x" + widthSt + "x" + heightSt;
 
     return "The volume of a " + dimensions + " rectangle is " + volume;
+  }
+
+  public String area(Map<String, String> body) {
+    String shape = body.get("type");
+
+    if (shape.equals("rectangle")) {
+      String widthString = body.get("width");
+      String heightString = body.get("height");
+      if (widthString != null && heightString != null) {
+        double width = Double.parseDouble(widthString);
+        double height = Double.parseDouble(heightString);
+        double area = width * height;
+        return String.format("Area of a %sx%s rectangle is %s", width, height, area).trim();
+      }
+    } else if (shape.equals("circle")) {
+      String radiusString = body.get("radius");
+      if (radiusString != null) {
+        double radius = Double.parseDouble(radiusString);
+        double area = radius * radius * Double.parseDouble(pi());
+        return String.format("Area of a circle with a radius of %s is %s", radius, area).trim();
+      }
+    }
+
+    return "Invalid";
   }
 }
