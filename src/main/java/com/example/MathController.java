@@ -19,7 +19,7 @@ public class MathController {
 
 	@GetMapping("/calculate")
 	public String getCalculationParams(
-			@RequestParam(value = "operation", defaultValue = "add") String operation,
+			@RequestParam(defaultValue = "add") String operation,
 			@RequestParam String x,
 			@RequestParam String y) {
 
