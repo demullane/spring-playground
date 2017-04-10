@@ -146,30 +146,3 @@ public class FlightsController {
   }
 
 }
-
-//[
-//    {
-//        "departs": "2017-04-21 14:34",
-//        "tickets": [
-//            {
-//                "passenger": {
-//                    "firstName": "Some name",
-//                    "lastName": "Some other name"
-//                },
-//                "price": 200
-//            }
-//        ]
-//    },
-//    {
-//        "departs": "2017-04-21 14:34",
-//        "tickets": [
-//            {
-//                "passenger": {
-//                      "firstName": "Some other name",
-//                      "lastName": null
-//                },
-//                "price": 400
-//            }
-//        ]
-//    }
-//]
