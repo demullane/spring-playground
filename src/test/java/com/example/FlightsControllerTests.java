@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(FlightsController.class)
-public class FlightsControllerTest {
+public class FlightsControllerTests {
 
   @Autowired
   private MockMvc mvc;
@@ -110,8 +110,8 @@ public class FlightsControllerTest {
   }
 
   @Test
-  public void testRawBody() throws Exception {
-    String json = getJSON("/data.json");
+  public void testTotalEndpointWithRawBody() throws Exception {
+    String json = getJSON("/flight_data.json");
 
     MockHttpServletRequestBuilder request = post("/flights/tickets/total")
         .contentType(MediaType.APPLICATION_JSON)
