@@ -1,6 +1,10 @@
 package com.example;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/lessons")
@@ -58,6 +62,20 @@ public class LessonsController {
   @DeleteMapping("/{id}")
   public void delete(@PathVariable Long id) {
     this.repository.delete(id);
+  }
+
+  @GetMapping("/find/{title}")
+  public Lesson findByTitle(@PathVariable String title) {
+    return this.repository.findByTitle(title);
+  }
+
+  @GetMapping("/between")
+  public List<Lesson> findAllBetweenDates(
+      @RequestParam("date1")
+      @DateTimeFormat(pattern = "yyyy-MM-dd") Date date1,
+      @RequestParam("date2")
+      @DateTimeFormat(pattern = "yyyy-MM-dd") Date date2) {
+    return this.repository.findByDeliveredOnBetween(date1, date2);
   }
 
 }
