@@ -22,6 +22,14 @@ public class LessonsController {
     return this.repository.save(lesson);
   }
 
+  @PatchMapping("/{id}")
+  public Lesson update(@PathVariable Long id, @RequestBody Lesson updatedLesson) {
+    Lesson outdatedLesson = this.repository.findOne(id);
+    outdatedLesson.setTitle(updatedLesson.getTitle());
+    outdatedLesson.setDeliveredOn(updatedLesson.getDeliveredOn());
+    return this.repository.save(outdatedLesson);
+  }
+
   @GetMapping("/{id}")
   public LessonResponse show(@PathVariable Long id) {
     Lesson lesson = this.repository.findOne(id);
